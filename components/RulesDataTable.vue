@@ -180,7 +180,6 @@
       },
 
       editItem (item) {
-        console.log(item)
         this.editedIndex = this.rules.indexOf(item)
         this.item.house_rules = Object.assign({}, item)
         this.dialog = true

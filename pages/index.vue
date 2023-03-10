@@ -31,7 +31,7 @@ export default {
         let res = await this.$auth.loginWith('local', { data: this.userInfo })
         localStorage.setItem('token', res.data.data.result.access_token)
       } catch (err) {
-        console.log(err)
+          this.$notifier.showMessage({ content: 'Failed to get authorization token', color: 'error' })
       } finally {
         this.loading = false
       }
