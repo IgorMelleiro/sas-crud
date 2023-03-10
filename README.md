@@ -16,8 +16,8 @@ $ yarn start
 # generate static project
 $ yarn generate
 
-# vercel link
-$ https://sas-crud.vercel.app/
+# vercel
+$ [click here to access](https://sas-crud.vercel.app/). 
 ```
 
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
