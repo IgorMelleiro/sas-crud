@@ -224,8 +224,6 @@
               this.$notifier.showMessage({ content: 'Rule created successfully', color: 'success' })
           } catch (error) {
               this.$notifier.showMessage({ content: 'Failed to create rule, try again later', color: 'error' })
-          } finally {
-            this.getRules()
           }
         }
         this.close()
