@@ -15,10 +15,10 @@ $ yarn start
 
 # generate static project
 $ yarn generate
-
-# vercel
-$ [click here to access](https://sas-crud.vercel.app/). 
 ```
+
+### `Vercel App`
+[Click here to access the application!](https://sas-crud.vercel.app/). 
 
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
