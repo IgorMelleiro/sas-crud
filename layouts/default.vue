@@ -6,7 +6,7 @@
       app
     >
       <v-toolbar-title>
-        HELLO THERE
+        Sys Dev Task
       </v-toolbar-title>
       <v-spacer />
     </v-app-bar>
@@ -15,6 +15,7 @@
         <Nuxt />
       </v-container>
     </v-main>
+    <Snackbar></Snackbar>
     <v-footer
       :absolute="!fixed"
       app
@@ -25,8 +26,11 @@
 </template>
 
 <script>
+import Snackbar from "~/components/Snackbar";
+
 export default {
   name: 'DefaultLayout',
+  components: { Snackbar },
   data () {
     return {
       clipped: false,

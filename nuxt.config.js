@@ -44,9 +44,8 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
-
+  plugins: ["~/plugins/notifier.js"],
+  
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
@@ -58,7 +57,6 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    ['nuxt-tailvue', {toast: true}],
     '@nuxtjs/axios',
     '@nuxtjs/auth-next'
   ],

@@ -9,7 +9,7 @@
     >
       <template v-slot:top>
         <v-toolbar flat >
-          <v-toolbar-title>My CRUD</v-toolbar-title>
+          <v-toolbar-title>SAS CRUD</v-toolbar-title>
           <v-divider
             class="mx-4"
             inset
@@ -130,7 +130,7 @@
         { text: 'Order', value: 'order' },
         { text: 'Actions', value: 'actions', sortable: false },
       ],
-      editedIndex: -2,
+      editedIndex: -1,
       item: {
         house_rules: {
           id: 0,
@@ -171,13 +171,11 @@
       async getRules(url) {
         try {
           let rs = await this.$axios.get(url ? url : '/house_rules', { headers: { 'Authorization': `Bearer ${localStorage.token}` } })
-          console.log(rs)
           this.rules = rs.data.data.entities
           this.pagination.next = rs.data.data.pagination.links.next
           this.pagination.prev = rs.data.data.pagination.links.prev
-          this.totalItems = rs.data.data.pagination.total
         } catch (error) {
-          //this.$toast.error('fail')
+          this.$notifier.showMessage({ content: 'Failed to get rules', color: 'error' })
         }
       },
 
@@ -191,8 +189,9 @@
       async deleteItem (item) {
         try {
           await this.$axios.delete(`/house_rules/${item.id}`, { headers: { 'Authorization': `Bearer ${localStorage.token}` } })
+          this.$notifier.showMessage({ content: 'Rule deleted successfully', color: 'success' })
         } catch (error) {
-          //this.$toast.error('fail')
+          this.$notifier.showMessage({ content: 'Could not delete rule, try again later', color: 'error' })
         } finally {
           this.getRules()
         }
@@ -208,19 +207,23 @@
 
       async save () {
         if (this.editedIndex > -1) {
+          // update
           try {
             await this.$axios.put(`/house_rules/${this.item.house_rules.id}`, this.item, { headers: { 'Authorization': `Bearer ${localStorage.token}` } })
+            this.$notifier.showMessage({ content: 'Rule updated successfully', color: 'success' })
           } catch (error) {
-            //this.$toast.error('fail')
+              this.$notifier.showMessage({ content: 'Failed to update rule, try again later', color: 'error' })
           } finally {
             this.getRules()
           }
         } else {
+          // create
           this.rules.push(this.item.house_rules)
           try {
             await this.$axios.post('/house_rules', this.item, { headers: { 'Authorization': `Bearer ${localStorage.token}` } })
+              this.$notifier.showMessage({ content: 'Rule created successfully', color: 'success' })
           } catch (error) {
-            //this.$toast.error('fail')
+              this.$notifier.showMessage({ content: 'Failed to create rule, try again later', color: 'error' })
           } finally {
             this.getRules()
           }
