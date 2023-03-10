@@ -18,7 +18,7 @@ $ yarn generate
 ```
 
 ### `Vercel App`
-[Click here to access the application!](https://sas-crud.vercel.app/). 
+[Click here to access the application!](https://sas-crud.vercel.app/)
 
 ## Special Directories
 
