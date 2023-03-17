@@ -4,7 +4,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   ssr: false,
   head: {
-    titleTemplate: '%s - sas-crud',
+    titleTemplate: 'sas-crud',
     title: 'sas-crud',
     htmlAttrs: {
       lang: 'en'
